@@ -195,6 +195,102 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
     .section-offset {
       scroll-margin-top: 90px;
     }
+  .timeline-wrapper {
+    position: relative;
+    margin: 3rem auto;
+    max-width: 800px;
+    padding: 2rem 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: #1e88e5;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 2rem 0;
+  }
+
+  .timeline-item.left .timeline-content {
+    width: 40%;
+    margin-right: auto;
+    text-align: right;
+    order: 1;
+    z-index: 2;
+    cursor: default;
+  }
+
+  .timeline-item.right .timeline-content {
+    width: 40%;
+    margin-left: auto;
+    text-align: left;
+    order: 2;
+    z-index: 2;
+    cursor: default;
+  }
+
+  .timeline-item.left .timeline-description {
+    width: 40%;
+    margin-left: auto;
+    text-align: left;
+    order: 2;
+    z-index: 2;
+  }
+
+  .timeline-item.right .timeline-description {
+    width: 40%;
+    margin-right: auto;
+    text-align: right;
+    order: 1;
+    z-index: 2;
+  }
+
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #1e88e5;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0.5rem;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .timeline-content,
+  .timeline-description {
+    background-color: #121212;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .timeline-description {
+    opacity: 0;
+    transform: translateY(10px);
+    display: none;
+    font-size: 0.95rem;
+    color: #dddddd;
+  }
+
+  .timeline-item:hover .timeline-description {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
   </style>
 </head>
 <body>
@@ -249,39 +345,39 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   </section>
 
   <!-- ================ EXPERIENCE ================ -->
+
   <section id="experience" class="section-offset">
     <h2>Experience</h2>
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
 
-    <h3>FDJ Gaming Solutions – London, UK</h3>
-    <h4>Senior Project Manager (2022 – Present)</h4>
-    <ul>
-      <li>Led end-to-end delivery of complex sports betting platform projects for lottery clients in Europe and North America.</li>
-      <li>Defined structured project plans, managed cross-functional teams, and mitigated delivery risks.</li>
-      <li>Delivered innovation in sports betting features, boosting user experience and system scalability.</li>
-    </ul>
+      <div class="timeline-item left" data-role="senior">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Senior Project Manager</h4>
+          <p>FDJ Gaming Solutions<br>2022 – Present</p>
+        </div>
+        <div class="timeline-description"></div>
+      </div>
 
-    <h4>Project Manager (2019 – 2022)</h4>
-    <ul>
-      <li>Oversaw product enhancements during organisational restructuring and liaised with international stakeholders.</li>
-      <li>Created project plans, managed competing priorities, and ensured timely delivery under tight timelines.</li>
-    </ul>
+      <div class="timeline-item right" data-role="pm">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Project Manager</h4>
+          <p>FDJ Gaming Solutions<br>2019 – 2022</p>
+        </div>
+        <div class="timeline-description"></div>
+      </div>
 
-    <h3>Pensionsync – London, UK</h3>
-    <h4>Product Manager (2015 – 2019)</h4>
-    <ul>
-      <li>Owned strategic product roadmaps and prioritised backlog across APIs, web apps, and CMS systems.</li>
-      <li>Worked with leading pension providers to streamline integration and data flow performance.</li>
-    </ul>
-  </section>
-
-  <!-- ================ EDUCATION ================ -->
-  <section id="education" class="section-offset">
-    <h2>Education</h2>
-    <h3>University of Algarve, Portugal</h3>
-    <ul>
-      <li>MSc in Environmental Engineering</li>
-      <li>BSc (Hons) in Environmental Engineering</li>
-    </ul>
+      <div class="timeline-item left" data-role="product">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Product Manager</h4>
+          <p>Pensionsync<br>2015 – 2019</p>
+        </div>
+        <div class="timeline-description"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ================ CONTACT ================ -->
@@ -353,8 +449,24 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   });
 </script>
   <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://miguelviegas.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://miguelviegas.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js">
+</script>
+
+  <!-- Timeline -->  
+<script>
+const descriptions = {
+  senior: "Led delivery of sports betting platforms. Aligned international stakeholders and enhanced core product features.",
+  pm: "Managed internal delivery through restructuring. Oversaw project planning and external client expectations.",
+  product: "Defined roadmap for pensions APIs and dashboards. Improved data flow with major providers."
+};
+
+document.querySelectorAll(".timeline-item").forEach(item => {
+  const role = item.dataset.role;
+  const descriptionEl = item.querySelector(".timeline-description");
+  descriptionEl.innerText = descriptions[role];
+});
+</script>
 <footer style="text-align: center; padding: 2rem 0; font-size: 0.9rem; color: #666;">
   © 2025 Miguel Viegas
 </footer>
