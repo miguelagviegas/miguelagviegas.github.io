@@ -80,7 +80,7 @@
       color: #bbbbbb;
     }
     .nav-links a.active {
-      border-bottom: 2px solid #90caf9;
+      border-bottom: 2px solid #ffffff;
     }
     .menu-toggle {
       display: none;
@@ -258,6 +258,21 @@
     link.addEventListener("click", () => {
       navMenu.classList.remove("show");
     });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    const isMenuOpen = navMenu.classList.contains("show");
+    const isSmallScreen = window.innerWidth <= 700;
+
+    if (
+      isMenuOpen &&
+      isSmallScreen &&
+      !navMenu.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      navMenu.classList.remove("show");
+    }
   });
 </script>
 </body>
