@@ -14,7 +14,11 @@
 
   <!-- Favicon -->
 
-  <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-ico
 
   <!-- Primary Meta Tags -->
 
@@ -52,6 +56,7 @@
 
   <!-- ================= HEADER ================= -->
   <header>
+    <img src="profile.png" alt="Miguel Viegas" class="profile-pic">
     <h1>Miguel Viegas</h1>
     <h2>Senior Project Manager</h2>
     <p>Delivering Business Impact through Strategic Project Leadership</p>
@@ -64,6 +69,7 @@
   </header>
 
   <!-- ================= ABOUT ================= -->
+
   <section id="about" class="section-offset">
     <h2>About Me</h2>
     <p>
@@ -72,6 +78,7 @@
   </section>
 
   <!-- ================= SKILLS ================= -->
+
   <section id="skills" class="section-offset">
     <h2>Core Skills</h2>
     <ul>
@@ -119,6 +126,9 @@
       </div>
     </div>
   </section>
+
+  <!-- ================ SCRIPTS ================ -->
+
 <script>
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -202,6 +212,9 @@ document.querySelectorAll(".timeline-item").forEach(item => {
   observer.observe(item);
 });
 </script>
+
+  <!-- ================ FOOTER ================ -->
+
 <footer style="text-align: center; padding: 2rem 0; font-size: 0.9rem; color: #666;">
   <a class="icon-button" href="mailto:miguelagviegas@gmail.com" aria-label="Email">
     <svg width="20" height="20" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -220,5 +233,6 @@ document.querySelectorAll(".timeline-item").forEach(item => {
   </a>
   <div style="margin-top: 1rem;">© 2025 Miguel Viegas</div>
 </footer>
+
 </body>
 </html>
