@@ -58,6 +58,8 @@
       border-radius: 4px;
       text-decoration: none;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      min-width: 140px;
+      text-align: center;
     }
     .button:hover {
       background-color: #1565c0;
@@ -87,6 +89,7 @@
     }
     .nav-links {
       display: flex;
+      padding: 0.8rem 0;
     }
     .nav-links a {
       margin: 0 0.6rem;
@@ -142,7 +145,21 @@
         scroll-padding-top: 80px; /* Adjust based on your navbar height */
     }
     section {
-      padding-bottom: 3rem;
+      padding-bottom: 2rem;
+        opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+section:nth-of-type(2) { animation-delay: 0.1s; }
+section:nth-of-type(3) { animation-delay: 0.2s; }
+section:nth-of-type(4) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
     }
     .section-offset {
       scroll-margin-top: 90px;
@@ -299,5 +316,8 @@
     }
   });
 </script>
+<footer style="text-align: center; padding: 2rem 0; font-size: 0.9rem; color: #666;">
+  © 2025 Miguel Viegas</a>
+</footer>
 </body>
 </html>
