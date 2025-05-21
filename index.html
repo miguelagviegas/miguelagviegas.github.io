@@ -52,7 +52,6 @@
       background-color: #1e1e1e;
       z-index: 100;
       border-bottom: 1px solid #333;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.2);
     }
     .nav-container {
       max-width: 800px;
@@ -87,7 +86,7 @@
       display: none;
       font-size: 1.5rem;
       background: none;
-      color: #90caf9;
+      color: #ffffff;
       border: none;
       cursor: pointer;
     }
@@ -120,6 +119,10 @@
         display: flex;
       }
     }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Adjust based on your navbar height */
+    }
   </style>
 </head>
 <body>
@@ -127,7 +130,7 @@
   <!-- ================= NAVIGATION ================= -->
   <nav id="navbar">
     <div class="nav-container">
-      <div class="nav-brand">Miguel Viegas</div>
+      <a href="#" class="nav-brand">Miguel Viegas</a>
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       <div class="nav-links">
         <a href="#about">About</a>
