@@ -61,11 +61,15 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
+      flex-wrap: wrap;
     }
     .nav-brand {
       font-weight: bold;
       font-size: 1.1rem;
       color: #ffffff;
+    }
+    .nav-links {
+      display: flex;
     }
     .nav-links a {
       margin: 0 0.6rem;
@@ -74,28 +78,66 @@
       font-weight: 500;
     }
     .nav-links a:hover {
-      color: #e4e3e3;
+      color: #bbbbbb;
     }
     .nav-links a.active {
       border-bottom: 2px solid #90caf9;
-    }  
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      color: #90caf9;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1e1e1e;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #333;
+      }
+
+      .nav-links a {
+        padding: 0.75rem;
+        border-bottom: 1px solid #2c2c2c;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- ================= NAVIGATION ================= -->
   <nav id="navbar">
-  <div class="nav-container">
-    <div class="nav-brand">Miguel Viegas</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-container">
+      <div class="nav-brand">Miguel Viegas</div>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -183,23 +225,29 @@
 <script>
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-links");
 
+  // Highlight active nav link based on scroll
   window.addEventListener("scroll", () => {
     let current = "";
-
     sections.forEach((section) => {
       const sectionTop = section.offsetTop - 100;
       if (scrollY >= sectionTop) {
         current = section.getAttribute("id");
       }
     });
-
     navLinks.forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href") === `#${current}`) {
         link.classList.add("active");
       }
     });
+  });
+
+  // Toggle nav menu on mobile
+  toggleBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
   });
 </script>
 </body>
