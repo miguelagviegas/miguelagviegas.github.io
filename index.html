@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Miguel Viegas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #121212;
-      color: #e0e0e0;
-      font-family: Arial, sans-serif;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0 1rem;
@@ -21,6 +22,21 @@
       margin: 2rem auto;
     }
     h1, h2, h3, h4 {
+      color: #ffffff;
+    }
+    h2 {
+      font-size: 1.75rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+      font-weight: normal;
       color: #ffffff;
     }
     a {
@@ -41,10 +57,12 @@
       color: white;
       border-radius: 4px;
       text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .button:hover {
       background-color: #1565c0;
       text-decoration: none;
+      transform: translateY(-2px);
     }
     nav {
       position: sticky;
@@ -119,9 +137,15 @@
         display: flex;
       }
     }
-      html {
+    html {
         scroll-behavior: smooth;
         scroll-padding-top: 80px; /* Adjust based on your navbar height */
+    }
+    section {
+      padding-bottom: 3rem;
+    }
+    .section-offset {
+      scroll-margin-top: 90px;
     }
   </style>
 </head>
@@ -151,7 +175,7 @@
   </header>
 
   <!-- ================= ABOUT ================= -->
-  <section id="about">
+  <section id="about" class="section-offset">
     <h2>About Me</h2>
     <p>
       I’m a strategic and performance-driven project manager with extensive experience leading complex software projects across Europe and North America. With a strong background in Agile, Waterfall, and hybrid delivery, I specialise in aligning delivery with business goals, fostering cross-functional collaboration, and driving measurable impact.
@@ -159,7 +183,7 @@
   </section>
 
   <!-- ================= SKILLS ================= -->
-  <section id="skills">
+  <section id="skills" class="section-offset">
     <h2>Core Skills</h2>
     <ul>
       <li>Project Planning</li>
@@ -172,7 +196,7 @@
   </section>
 
   <!-- ================ EXPERIENCE ================ -->
-  <section id="experience">
+  <section id="experience" class="section-offset">
     <h2>Experience</h2>
 
     <h3>FDJ Gaming Solutions – London, UK</h3>
@@ -198,7 +222,7 @@
   </section>
 
   <!-- ================ EDUCATION ================ -->
-  <section id="education">
+  <section id="education" class="section-offset">
     <h2>Education</h2>
     <h3>University of Algarve, Portugal</h3>
     <ul>
@@ -208,7 +232,7 @@
   </section>
 
   <!-- ================ CONTACT ================ -->
-<section id="contact">
+<section id="contact" class="section-offset">
   <h2>Contact</h2>
   <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
     <a class="button" href="mailto:miguelagviegas@gmail.com">
