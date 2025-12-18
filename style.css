@@ -508,9 +508,9 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .certs {
   display: flex;
-  flex-wrap: wrap;          /* stays horizontal, wraps on small screens */
+  flex-wrap: wrap;
   gap: 18px;
-  align-items: center;
+  align-items: flex-start; /* important for tooltip below */
   margin-top: 14px;
 }
 
@@ -519,18 +519,21 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 92px;
-  height: 92px;
+  width: 96px;              /* unified size */
+  height: 96px;
+  padding: 8px;             /* gives breathing room */
   border-radius: 14px;
   text-decoration: none;
   outline: none;
+  background: #fff;         /* optional, helps visual consistency */
   transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
 .cert img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* ensures same visual size */
+  border-radius: 10px;
   display: block;
 }
 
@@ -543,7 +546,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .tooltip {
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 12px);
+  top: calc(100% + 12px);   /* ⬇ BELOW the badge */
   transform: translateX(-50%);
   width: min(280px, 75vw);
   background: rgba(20, 20, 20, 0.96);
@@ -555,6 +558,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  z-index: 10;
   transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
 }
 
@@ -581,16 +585,16 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .cert:focus-visible .tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%) translateY(2px);
 }
 
 /* small arrow */
 .tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;            /* arrow on top of tooltip */
   left: 50%;
   transform: translateX(-50%);
   border: 8px solid transparent;
-  border-top-color: rgba(20, 20, 20, 0.96);
+  border-bottom-color: rgba(20, 20, 20, 0.96);
 }
