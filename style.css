@@ -401,8 +401,8 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .tab {
-  background: #ffffff;
-  border: none;
+  background: transparent;
+  border: 1px solid #ffffff;
   color: #121212;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -416,7 +416,8 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .tab:hover,
 .tab.active {
-  background-color: #dddddd;
+  background-color: #ffffff;
+  color: #121212;
 }
 
 .tab-content {
