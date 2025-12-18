@@ -403,7 +403,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .tab {
   background: transparent;
   border: 1px solid #ffffff;
-  color: #121212;
+  color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 600;
