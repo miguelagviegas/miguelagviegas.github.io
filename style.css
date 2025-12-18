@@ -525,7 +525,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   border-radius: 14px;
   text-decoration: none;
   outline: none;
-  background: #fff;         /* optional, helps visual consistency */
+  background: transparent;
   transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
@@ -546,10 +546,10 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .tooltip {
   position: absolute;
   left: 50%;
-  top: calc(100% + 12px);   /* ⬇ BELOW the badge */
+  top: calc(100% + 10px);
   transform: translateX(-50%);
   width: min(280px, 75vw);
-  background: rgba(20, 20, 20, 0.96);
+  background: transparent;
   color: #fff;
   padding: 12px 12px 10px;
   border-radius: 12px;
@@ -559,7 +559,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   visibility: hidden;
   pointer-events: none;
   z-index: 10;
-  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
+  transition: opacity 140ms ease, transform 140ms ease;
 }
 
 .tooltip strong {
@@ -585,7 +585,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .cert:focus-visible .tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(2px);
+  transform: translateX(-50%) translateY(4px);
 }
 
 /* small arrow */
@@ -597,4 +597,19 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   transform: translateX(-50%);
   border: 8px solid transparent;
   border-bottom-color: rgba(20, 20, 20, 0.96);
+}
+
+.badge {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
