@@ -464,24 +464,36 @@ tabs.forEach(tab => {
 
     const items = Array.from(grid.querySelectorAll(".skill-item"));
 
-    function setActive(btn) {
-  items.forEach(b => b.classList.remove("is-active"));
-  btn.classList.add("is-active");
-
-  proof.textContent = btn.dataset.proof || "";
-  proof.style.display = "block"; // ← ADD THIS LINE
-}
-
-    // Hover updates proof (desktop)
     items.forEach(btn => {
-      btn.addEventListener("mouseenter", () => setActive(btn));
-      btn.addEventListener("focus", () => setActive(btn));
-      // Click updates proof (mobile + accessibility)
-      btn.addEventListener("click", () => setActive(btn));
+      // Show proof on hover
+      btn.addEventListener("mouseenter", () => {
+        btn.classList.add("is-active");
+        proof.textContent = btn.dataset.proof || "";
+        proof.style.display = "block";
+      });
+
+      // Hide proof when hover ends
+      btn.addEventListener("mouseleave", () => {
+        btn.classList.remove("is-active");
+        proof.textContent = "";
+        proof.style.display = "none";
+      });
+
+      // Accessibility: keyboard focus behaves like hover
+      btn.addEventListener("focus", () => {
+        btn.classList.add("is-active");
+        proof.textContent = btn.dataset.proof || "";
+        proof.style.display = "block";
+      });
+
+      btn.addEventListener("blur", () => {
+        btn.classList.remove("is-active");
+        proof.textContent = "";
+        proof.style.display = "none";
+      });
     });
   })();
 </script>
-
 
   <!-- ================ FOOTER ================ -->
 
