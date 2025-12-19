@@ -243,7 +243,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: flex-start;
   margin: 2rem 0;
   opacity: 0;
   transform: translateY(20px);
@@ -663,7 +663,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .skills-3col {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 10px;
   margin-top: 12px;
 }
 
