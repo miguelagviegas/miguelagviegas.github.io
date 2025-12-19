@@ -376,13 +376,26 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 @media (max-width: 768px) {
   .timeline-line {
-    left: 8px;
+    left: 18px; /* CHANGED: aligns to dot centre (dot outer size is ~36px, half is 18px) */
   }
+
+  .timeline-block {
+    align-items: flex-start; /* ADDED: stop centering the dot */
+  }
+
+  .timeline-dot {
+    margin: 0;           /* CHANGED: remove centering */
+    position: relative;  /* keep as-is */
+    left: 0;             /* ensure no leftover offsets */
+    transform: none;     /* CHANGED: remove translate */
+  }
+
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 2rem;
+    padding-left: 3.25rem; /* CHANGED: gives space for line+dot */
   }
+
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content,
   .timeline-item.left .timeline-description,
@@ -391,10 +404,6 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
     text-align: left;
     margin: 0;
     order: unset;
-  }
-  .timeline-dot {
-    left: 0;
-    transform: translateX(0);
   }
 }
 .role-header {
