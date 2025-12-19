@@ -250,26 +250,21 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.timeline-content {
-  min-height: 130px;  /* ✅ same visual block height for all 3 */
-}
-
 .timeline-item.left .timeline-content,
 .timeline-item.left .timeline-description,
 .timeline-item.right .timeline-content,
 .timeline-item.right .timeline-description {
   width: 40%;
   padding: 1rem;
-  background-color: transparent;   /* ✅ transparent */
+  background-color: #ffffff;
   border-radius: 6px;
-  box-shadow: none;                /* ✅ no card background/shadow */
-  color: #ffffff;                  /* ✅ white text */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .timeline-item.left .timeline-content {
   margin-right: auto;
-  text-align: left;
+  text-align: right;
   order: 1;
   z-index: 2;
   color: #121212;
@@ -311,16 +306,26 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   transform: translateY(0);
 }
 
+.timeline-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .timeline-dot {
   width: 24px;
   height: 24px;
-  background-color: transparent;
-  border: 3px solid #ffffff;
+  background-color: #121212;
+  border: 6px solid #ffffff;
   border-radius: 50%;
+  position: relative; /* CHANGED from absolute to relative */
   z-index: 10;
+  margin: 0 auto;
+  opacity: 1;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
-
 
 .timeline-dot.active {
   background-color: #ffffff;
@@ -384,77 +389,6 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .company-dates {
   font-size: 0.85rem;
   color: #666;
-}
-
-/* NEW: each timeline row is a 3-column grid (left | center marker | right) */
-.timeline-entry {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 80px 1fr;
-  align-items: start;
-  margin: 2rem 0;
-}
-
-/* NEW: marker sits in the center column */
-.timeline-marker {
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 3;
-}
-
-/* NEW: year label below dot */
-.timeline-year {
-  font-size: 0.85rem;
-  color: #ffffff;
-  opacity: 0.9;
-  line-height: 1;
-}
-
-.role-info h4,
-.company-link,
-.company-dates {
-  color: #ffffff;
-}
-
-.company-link:hover {
-  text-decoration: underline;
-}
-
-.timeline-item {
-  position: relative;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* description floats (does not take space) */
-.timeline-description {
-  position: absolute;
-  top: calc(100% + 10px);
-  width: 40%;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-}
-
-/* align description depending on side */
-.timeline-item.left .timeline-description {
-  left: 0;
-  text-align: left;
-}
-
-.timeline-item.right .timeline-description {
-  right: 0;
-  text-align: left; /* usually best readability */
-}
-
-.timeline-item:hover .timeline-description {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 
 /* --- PROJECTS TABLE --- */
