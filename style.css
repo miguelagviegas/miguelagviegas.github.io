@@ -657,3 +657,57 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   object-fit: contain;
   display: block;
 }
+
+/* --- CORE SKILLS -- */
+
+.skills-3col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.skills-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.skill-item:hover,
+.skill-item:focus-visible,
+.skill-item.is-active {
+  background: #ffffff;
+  color: #121212;
+  outline: none;
+}
+
+.skill-proof {
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #121212;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: collapse to 1 column on small screens */
+@media (max-width: 700px) {
+  .skills-3col {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

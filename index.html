@@ -103,14 +103,54 @@
 
   <section id="skills" class="section-offset">
     <h2>Core Skills</h2>
-    <ul>
-      <li>Project Planning</li>
-      <li>Risk & Issue Management</li>
-      <li>Agile (Scrum)</li>
-      <li>Stakeholder Management</li>
-      <li>Process Improvement</li>
-      <li>Data-Driven Decision Making</li>
-    </ul>
+<div class="skills-3col" id="skillsGrid" aria-label="Core skills">
+  <!-- Column 1 -->
+  <div class="skills-col">
+    <button class="skill-item is-active" type="button"
+      data-proof="Proof for Skill 1 goes here. Replace with your real example/impact.">
+      Skill 1
+    </button>
+    <button class="skill-item" type="button"
+      data-proof="Proof for Skill 2 goes here.">
+      Skill 2
+    </button>
+    <button class="skill-item" type="button"
+      data-proof="Proof for Skill 3 goes here.">
+      Skill 3
+    </button>
+    <button class="skill-item" type="button"
+      data-proof="Proof for Skill 4 goes here.">
+      Skill 4
+    </button>
+    <button class="skill-item" type="button"
+      data-proof="Proof for Skill 5 goes here.">
+      Skill 5
+    </button>
+  </div>
+
+  <!-- Column 2 -->
+  <div class="skills-col">
+    <button class="skill-item" type="button" data-proof="Proof for Skill 6 goes here.">Skill 6</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 7 goes here.">Skill 7</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 8 goes here.">Skill 8</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 9 goes here.">Skill 9</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 10 goes here.">Skill 10</button>
+  </div>
+
+  <!-- Column 3 -->
+  <div class="skills-col">
+    <button class="skill-item" type="button" data-proof="Proof for Skill 11 goes here.">Skill 11</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 12 goes here.">Skill 12</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 13 goes here.">Skill 13</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 14 goes here.">Skill 14</button>
+    <button class="skill-item" type="button" data-proof="Proof for Skill 15 goes here.">Skill 15</button>
+  </div>
+</div>
+
+<!-- Proof panel (spans all 3 columns) -->
+<div class="skill-proof" id="skillProof" aria-live="polite">
+  Proof for Skill 1 goes here. Replace with your real example/impact.
+</div>
   </section>
 
   <!-- ================= PROJECTS ================= -->
@@ -414,6 +454,33 @@ tabs.forEach(tab => {
   });
 });
 </script>
+
+  <!-- SKILLS --> 
+
+<script>
+  (function () {
+    const grid = document.getElementById("skillsGrid");
+    const proof = document.getElementById("skillProof");
+    if (!grid || !proof) return;
+
+    const items = Array.from(grid.querySelectorAll(".skill-item"));
+
+    function setActive(btn) {
+      items.forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      proof.textContent = btn.dataset.proof || "";
+    }
+
+    // Hover updates proof (desktop)
+    items.forEach(btn => {
+      btn.addEventListener("mouseenter", () => setActive(btn));
+      btn.addEventListener("focus", () => setActive(btn));
+      // Click updates proof (mobile + accessibility)
+      btn.addEventListener("click", () => setActive(btn));
+    });
+  })();
+</script>
+
 
   <!-- ================ FOOTER ================ -->
 
