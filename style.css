@@ -386,7 +386,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   .timeline-dot {
     margin: 0;           /* CHANGED: remove centering */
     position: relative;  /* keep as-is */
-    left: 0;             /* ensure no leftover offsets */
+    left: 5px;             /* ensure no leftover offsets */
     transform: none;     /* CHANGED: remove translate */
   }
 
@@ -504,6 +504,72 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .tab-content details[open] {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --- PROJECTS (mobile accordion) --- */
+.projects-accordion {
+  display: none; /* desktop hidden by default */
+  margin-top: 1rem;
+}
+
+.proj-acc {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.proj-acc summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-weight: 600;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* remove default marker */
+.proj-acc summary::-webkit-details-marker { display: none; }
+
+/* custom chevron */
+.proj-acc summary::after {
+  content: "▾";
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.proj-acc[open] summary {
+  background: #ffffff;
+  color: #121212;
+}
+
+.proj-acc[open] summary::after {
+  content: "▴";
+}
+
+.proj-acc-body {
+  padding: 12px 12px 2px;
+  background: transparent;
+}
+
+/* Make inner project <details> match your existing white cards */
+.proj-acc-body details {
+  margin-bottom: 12px;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #121212;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Switch UI on mobile --- */
+@media (max-width: 700px) {
+  .tabs { display: none; }
+  .tab-content { display: none !important; }
+  .projects-accordion { display: block; }
 }
 
 /* --- EDUCATION CARDS --- */
