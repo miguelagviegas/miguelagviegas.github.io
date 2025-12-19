@@ -106,8 +106,8 @@
 <div class="skills-3col" id="skillsGrid" aria-label="Core skills">
   <!-- Column 1 -->
   <div class="skills-col">
-    <button class="skill-item is-active" type="button"
-      data-proof="Proof for Skill 1 goes here. Replace with your real example/impact.">
+    <button class="skill-item" type="button"
+      data-proof="Proof for Skill 1 goes here.">
       Skill 1
     </button>
     <button class="skill-item" type="button"
@@ -149,7 +149,6 @@
 
 <!-- Proof panel (spans all 3 columns) -->
 <div class="skill-proof" id="skillProof" aria-live="polite">
-  Proof for Skill 1 goes here. Replace with your real example/impact.
 </div>
   </section>
 
@@ -466,10 +465,12 @@ tabs.forEach(tab => {
     const items = Array.from(grid.querySelectorAll(".skill-item"));
 
     function setActive(btn) {
-      items.forEach(b => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      proof.textContent = btn.dataset.proof || "";
-    }
+  items.forEach(b => b.classList.remove("is-active"));
+  btn.classList.add("is-active");
+
+  proof.textContent = btn.dataset.proof || "";
+  proof.style.display = "block"; // ← ADD THIS LINE
+}
 
     // Hover updates proof (desktop)
     items.forEach(btn => {

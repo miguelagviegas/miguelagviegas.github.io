@@ -711,3 +711,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
     gap: 14px;
   }
 }
+
+.skill-proof {
+  display: none;
+}
