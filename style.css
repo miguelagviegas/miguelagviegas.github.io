@@ -280,46 +280,31 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .timeline-item.left .timeline-description {
-  position: absolute;          /* CHANGED */
-  left: 0;                     /* CHANGED */
-  top: calc(100% + 12px);      /* ADDED */
-  width: 40%;                  /* ADDED (same as content) */
-  margin: 0;                   /* CHANGED */
+  margin-left: auto;
   text-align: left;
-  z-index: 5;
-  color: #ffffff;              /* CHANGED */
-  background: transparent;     /* ADDED */
-  box-shadow: none;            /* ADDED */
-  display: block;              /* CHANGED (keep it in DOM) */
+  order: 2;
+  z-index: 2;
+  color: #121212;
+  display: none;
   opacity: 0;
-  visibility: hidden;          /* ADDED */
-  transform: translateY(8px);
-  pointer-events: none;        /* ADDED */
+  transform: translateY(10px);
 }
 
 .timeline-item.right .timeline-description {
-  position: absolute;          /* CHANGED */
-  right: 0;                    /* CHANGED */
-  top: calc(100% + 12px);      /* ADDED */
-  width: 40%;                  /* ADDED */
-  margin: 0;                   /* CHANGED */
-  text-align: left;            /* CHANGED (you wanted left aligned) */
-  z-index: 5;
-  color: #ffffff;              /* CHANGED */
-  background: transparent;     /* ADDED */
-  box-shadow: none;            /* ADDED */
-  display: block;              /* CHANGED */
+  margin-right: auto;
+  text-align: right;
+  order: 1;
+  z-index: 2;
+  color: #121212;
+  display: none;
   opacity: 0;
-  visibility: hidden;          /* ADDED */
-  transform: translateY(8px);
-  pointer-events: none;        /* ADDED */
+  transform: translateY(10px);
 }
 
 .timeline-item:hover .timeline-description {
+  display: block;
   opacity: 1;
-  visibility: visible;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
 .timeline-block {
