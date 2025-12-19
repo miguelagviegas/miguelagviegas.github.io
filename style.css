@@ -256,7 +256,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .timeline-item.right .timeline-description {
   width: 40%;
   padding: 1rem;
-  background-color: transparent; /* CHANGED */
+  background-color: #ffffff; /* CHANGED */
   border-radius: 6px;
   box-shadow: none;              /* CHANGED */
   color: #ffffff;                /* ADDED */
@@ -421,7 +421,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   border: 1px solid #ffffff;
   color: #ffffff;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
