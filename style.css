@@ -327,6 +327,17 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   transition: background-color 0.3s ease;
 }
 
+.timeline-dot .timeline-dot-date {
+  position: absolute;
+  left: calc(100% + 10px);   /* immediately to the right of the dot */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .timeline-dot.active {
   background-color: #ffffff;
 }
