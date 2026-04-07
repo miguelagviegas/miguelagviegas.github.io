@@ -353,7 +353,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   top: 50%;
   transform: translateY(-50%);
   color: #ffffff;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
