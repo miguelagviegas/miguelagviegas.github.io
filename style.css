@@ -312,9 +312,6 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   order: 2;
   z-index: 2;
   color: #ffffff;
-  display: none;
-  opacity: 0;
-  transform: translateY(10px);
 }
 
 .timeline-item.right .timeline-description {
@@ -323,15 +320,6 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   order: 1;
   z-index: 2;
   color: #ffffff;
-  display: none;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.timeline-item:hover .timeline-description {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .timeline-block {
