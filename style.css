@@ -252,12 +252,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .timeline-item.left .timeline-content {
   width: 40%;
+  min-height: 120px;
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: none;
   color: #ffffff;
   transition: all 0.3s ease;
+
 }
 
 .timeline-item.left .timeline-description {
@@ -272,6 +274,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .timeline-item.right .timeline-content {
   width: 40%;
+  min-height: 120px;
   padding: 1rem;
   background-color: #ffffff;
   border-radius: 6px;
@@ -401,8 +404,8 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .role-header img {
-  width: 100px;
-  height: auto;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   border-radius: 4px;
   margin-top: 0.1rem;
