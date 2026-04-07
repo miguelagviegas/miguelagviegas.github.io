@@ -731,27 +731,24 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .skills-3col {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
   margin-top: 12px;
-}
-
-.skills-col {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .skill-item {
   appearance: none;
-  border: none;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
   font: inherit;
   text-align: left;
-  padding: 8px 10px;
-  border-radius: 6px;
+  padding: 14px 16px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 140ms ease, color 140ms ease;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
 }
 
 .skill-item:hover,
@@ -759,6 +756,8 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .skill-item.is-active {
   background: #ffffff;
   color: #121212;
+  border-color: #ffffff;
+  transform: translateY(-1px);
   outline: none;
 }
 
