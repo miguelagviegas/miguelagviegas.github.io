@@ -442,23 +442,25 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .tab {
-  background: transparent;
-  border: 1px solid #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background-color 0.2s ease;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
 }
 
 .tab:hover,
 .tab.active {
   background-color: #ffffff;
   color: #121212;
+  border-color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .tab-content {
@@ -502,8 +504,8 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc {
-  border: 1px solid #ffffff;
-  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
   margin-bottom: 12px;
   overflow: hidden;
 }
@@ -511,13 +513,18 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .proj-acc summary {
   list-style: none;
   cursor: pointer;
-  padding: 12px 14px;
+  padding: 14px 16px;
   color: #ffffff;
   font-weight: 600;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.proj-acc summary:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* remove default marker */
