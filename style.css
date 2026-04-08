@@ -483,26 +483,18 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   }
 }
 
-.tab-content .project-item {
+.tab-content details {
   margin-bottom: 1rem;
   background: #ffffff;
   padding: 1rem;
   border-radius: 6px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
-.tab-content .project-item:hover {
+.tab-content details[open] {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-1px);
-}
-
-.tab-content .project-item h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #121212;
 }
 
 /* --- PROJECTS (mobile accordion) --- */
@@ -559,27 +551,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   background: transparent;
 }
 
-/* Make inner project divs match your existing white cards */
-.proj-acc-body .project-item {
+/* Make inner project <details> match your existing white cards */
+.proj-acc-body details {
   margin-bottom: 12px;
   background: #ffffff;
   padding: 1rem;
   border-radius: 6px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.proj-acc-body .project-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-1px);
-}
-
-.proj-acc-body .project-item h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #121212;
 }
 
 /* --- Switch UI on mobile --- */
