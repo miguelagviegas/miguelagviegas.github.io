@@ -1,49 +1,47 @@
 /* --- BASE STYLES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/* Navbar split layout */
-.nav-container {
+body {
+  background-color: #121212;
+  color: #eaeaea;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+header {
+  text-align: center;
+}
+
+header, section {
   max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+  margin: 2rem auto;
+}
 
-  .nav-container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    flex-wrap: wrap;
-  }
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
 
-  .nav-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #ffffff;
-  }
+h1, h2, h3, h4 {
+  color: #ffffff;
+}
 
-  .nav-profile-pic {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-  }
-  .nav-center {
-    order: 2;
-    .nav-brand {
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-    .nav-profile-pic {
-      width: 26px;
-      height: 26px;
-    }
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.3rem;
   margin-top: 1.5rem;
 }
 
@@ -133,34 +131,11 @@ nav {
 }
 
 .nav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
   font-weight: bold;
   font-size: 1.1rem;
   color: #ffffff;
 }
 
-.nav-profile-pic {
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
-}
-
-  .nav-profile-pic {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    max-width: 40px;
-    max-height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    box-sizing: border-box;
-  }
 .nav-links {
   display: flex;
   padding: 0.8rem 0;
@@ -191,17 +166,6 @@ nav {
 }
 
 @media (max-width: 700px) {
-  .nav-brand {
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-profile-pic {
-    width: 26px;
-    height: 26px;
-  }
-
   .menu-toggle {
     display: block;
   }
@@ -422,14 +386,15 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 3.25rem; /* CHANGED: gives space for line+dot */
+    padding-left: 2.5rem; /* reduced gutter to give more width */
   }
 
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content,
   .timeline-item.left .timeline-description,
   .timeline-item.right .timeline-description {
-    width: 100%;
+    width: auto;
+    max-width: calc(100% - 2.5rem);
     text-align: left;
     margin: 0;
     order: unset;
@@ -611,17 +576,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   padding: 0;
   margin: -1rem -1rem 0.5rem -1rem;
   padding: 0 1rem 0.5rem 1rem;
-  text-align: left;
 }
 
 .proj-acc-body details summary::-webkit-details-marker {
   display: none !important;
 }
 
-.proj-acc-body details summary strong {
-  text-align: left;
-  display: block;
-  flex: 1;
+.proj-acc-body details summary::-moz-list-bullet {
+  display: none !important;
 }
 
 .proj-acc-body details summary {
@@ -635,13 +597,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc-body details summary::after {
-  content: "▴";
+  content: "▾";
   font-size: 0.9rem;
   line-height: 1;
-  flex-shrink: 0;  margin-left: auto;}
+  flex-shrink: 0;
+}
 
 .proj-acc-body details[open] summary::after {
-  content: "▾";
+  content: "▴";
 }
 
 /* --- Switch UI on mobile --- */
