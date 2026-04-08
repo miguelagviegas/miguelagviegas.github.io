@@ -38,6 +38,14 @@ h2 {
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+  }
 }
 
 h3 {
