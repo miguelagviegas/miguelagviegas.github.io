@@ -561,6 +561,29 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.proj-acc-body details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.proj-acc-body details summary::-webkit-details-marker {
+  display: none;
+}
+
+.proj-acc-body details summary::after {
+  content: "▾";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.proj-acc-body details[open] summary::after {
+  content: "▴";
+}
+
 /* --- Switch UI on mobile --- */
 @media (max-width: 700px) {
   .tabs { display: none; }
