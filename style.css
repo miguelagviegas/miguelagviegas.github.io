@@ -568,20 +568,38 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  padding: 0;
+  margin: -1rem -1rem 0.5rem -1rem;
+  padding: 0 1rem 0.5rem 1rem;
 }
 
 .proj-acc-body details summary::-webkit-details-marker {
-  display: none;
+  display: none !important;
+}
+
+.proj-acc-body details summary::-moz-list-bullet {
+  display: none !important;
+}
+
+.proj-acc-body details summary {
+  margin-left: -1rem;
+  padding-left: 1rem;
+}
+
+.proj-acc-body details summary::before {
+  content: "";
+  display: block;
 }
 
 .proj-acc-body details summary::after {
-  content: "▾";
-  font-size: 1rem;
+  content: "▴";
+  font-size: 0.9rem;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .proj-acc-body details[open] summary::after {
-  content: "▴";
+  content: "▾";
 }
 
 /* --- Switch UI on mobile --- */
