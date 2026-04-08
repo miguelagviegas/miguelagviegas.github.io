@@ -532,21 +532,8 @@ tabs.forEach(tab => {
       moveProof(btn, index);
     }
 
-    function hideProof(btn) {
-      if (activeButton === btn) return;
-      btn.classList.remove("is-active");
-      if (document.activeElement !== btn) {
-        proof.textContent = "";
-        proof.style.display = "none";
-      }
-    }
-
     items.forEach((btn, index) => {
       btn.addEventListener("click", () => showProof(btn, index));
-      btn.addEventListener("mouseenter", () => showProof(btn, index));
-      btn.addEventListener("mouseleave", () => hideProof(btn));
-      btn.addEventListener("focus", () => showProof(btn, index));
-      btn.addEventListener("blur", () => hideProof(btn));
     });
 
     // Handle window resize to reposition if needed
