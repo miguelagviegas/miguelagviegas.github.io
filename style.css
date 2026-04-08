@@ -483,27 +483,26 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   }
 }
 
-.tab-content details {
+.tab-content .project-item {
   margin-bottom: 1rem;
   background: #ffffff;
   padding: 1rem;
   border-radius: 6px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.tab-content details[open] {
+.tab-content .project-item:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Hide chevron for project items since they're always open */
-.tab-content details.project-item summary::after {
-  display: none;
-}
-
-.project-item:hover {
   transform: translateY(-1px);
+}
+
+.tab-content .project-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #121212;
 }
 
 /* --- PROJECTS (mobile accordion) --- */
@@ -560,19 +559,27 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   background: transparent;
 }
 
-/* Make inner project <details> match your existing white cards */
-.proj-acc-body details {
+/* Make inner project divs match your existing white cards */
+.proj-acc-body .project-item {
   margin-bottom: 12px;
   background: #ffffff;
   padding: 1rem;
   border-radius: 6px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Hide chevron for project items in mobile accordion since they're always open */
-.proj-acc-body details.project-item summary::after {
-  display: none;
+.proj-acc-body .project-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.proj-acc-body .project-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #121212;
 }
 
 /* --- Switch UI on mobile --- */
