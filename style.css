@@ -497,6 +497,15 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Hide chevron for project items since they're always open */
+.tab-content details.project-item summary::after {
+  display: none;
+}
+
+.project-item:hover {
+  transform: translateY(-1px);
+}
+
 /* --- PROJECTS (mobile accordion) --- */
 .projects-accordion {
   display: none; /* desktop hidden by default */
@@ -559,6 +568,11 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   border-radius: 6px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide chevron for project items in mobile accordion since they're always open */
+.proj-acc-body details.project-item summary::after {
+  display: none;
 }
 
 /* --- Switch UI on mobile --- */
