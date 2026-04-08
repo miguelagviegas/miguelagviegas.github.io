@@ -1,4 +1,8 @@
 /* --- BASE STYLES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #121212;
   color: #eaeaea;
@@ -382,14 +386,15 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 3.25rem; /* CHANGED: gives space for line+dot */
+    padding-left: 3.25rem; /* gives space for line+dot */
   }
 
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content,
   .timeline-item.left .timeline-description,
   .timeline-item.right .timeline-description {
-    width: 100%;
+    width: auto;
+    max-width: calc(100% - 3.25rem);
     text-align: left;
     margin: 0;
     order: unset;
