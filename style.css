@@ -593,14 +593,17 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   padding: 0;
   margin: -1rem -1rem 0.5rem -1rem;
   padding: 0 1rem 0.5rem 1rem;
+  text-align: left;
 }
 
 .proj-acc-body details summary::-webkit-details-marker {
   display: none !important;
 }
 
-.proj-acc-body details summary::-moz-list-bullet {
-  display: none !important;
+.proj-acc-body details summary strong {
+  text-align: left;
+  display: block;
+  flex: 1;
 }
 
 .proj-acc-body details summary {
@@ -617,8 +620,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   content: "▴";
   font-size: 0.9rem;
   line-height: 1;
-  flex-shrink: 0;
-}
+  flex-shrink: 0;  margin-left: auto;}
 
 .proj-acc-body details[open] summary::after {
   content: "▾";
