@@ -1,8 +1,4 @@
 /* --- BASE STYLES --- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 body {
   background-color: #121212;
   color: #eaeaea;
@@ -131,9 +127,20 @@ nav {
 }
 
 .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   font-weight: bold;
   font-size: 1.1rem;
   color: #ffffff;
+}
+
+.nav-profile-pic {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
 
 .nav-links {
@@ -166,6 +173,17 @@ nav {
 }
 
 @media (max-width: 700px) {
+  .nav-brand {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-profile-pic {
+    width: 26px;
+    height: 26px;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -386,15 +404,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 2.5rem; /* reduced gutter to give more width */
+    padding-left: 3.25rem; /* CHANGED: gives space for line+dot */
   }
 
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content,
   .timeline-item.left .timeline-description,
   .timeline-item.right .timeline-description {
-    width: auto;
-    max-width: calc(100% - 2.5rem);
+    width: 100%;
     text-align: left;
     margin: 0;
     order: unset;
@@ -597,14 +614,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc-body details summary::after {
-  content: "▾";
+  content: "▴";
   font-size: 0.9rem;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .proj-acc-body details[open] summary::after {
-  content: "▴";
+  content: "▾";
 }
 
 /* --- Switch UI on mobile --- */
