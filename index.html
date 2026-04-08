@@ -503,35 +503,46 @@ tabs.forEach(tab => {
     const proof = document.getElementById("skillProof");
     if (!grid || !proof) return;
 
+    proof.style.display = "none";
+    proof.style.gridColumn = "1 / -1";
+
     const items = Array.from(grid.querySelectorAll(".skill-item"));
+    let activeButton = null;
 
-    items.forEach(btn => {
-      // Show proof on hover
-      btn.addEventListener("mouseenter", () => {
-        btn.classList.add("is-active");
-        proof.textContent = btn.dataset.proof || "";
-        proof.style.display = "block";
-      });
+    function moveProofAfterRow(itemIndex) {
+      const rowEndIndex = Math.min(Math.floor(itemIndex / 3) * 3 + 2, items.length - 1);
+      const anchor = items[rowEndIndex];
+      if (anchor) {
+        grid.insertBefore(proof, anchor.nextSibling);
+      } else {
+        grid.appendChild(proof);
+      }
+    }
 
-      // Hide proof when hover ends
-      btn.addEventListener("mouseleave", () => {
-        btn.classList.remove("is-active");
+    function showProof(btn, index) {
+      items.forEach(item => item.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      activeButton = btn;
+      proof.textContent = btn.dataset.proof || "";
+      proof.style.display = "block";
+      moveProofAfterRow(index);
+    }
+
+    function hideProof(btn) {
+      if (activeButton === btn) return;
+      btn.classList.remove("is-active");
+      if (document.activeElement !== btn) {
         proof.textContent = "";
         proof.style.display = "none";
-      });
+      }
+    }
 
-      // Accessibility: keyboard focus behaves like hover
-      btn.addEventListener("focus", () => {
-        btn.classList.add("is-active");
-        proof.textContent = btn.dataset.proof || "";
-        proof.style.display = "block";
-      });
-
-      btn.addEventListener("blur", () => {
-        btn.classList.remove("is-active");
-        proof.textContent = "";
-        proof.style.display = "none";
-      });
+    items.forEach((btn, index) => {
+      btn.addEventListener("click", () => showProof(btn, index));
+      btn.addEventListener("mouseenter", () => showProof(btn, index));
+      btn.addEventListener("mouseleave", () => hideProof(btn));
+      btn.addEventListener("focus", () => showProof(btn, index));
+      btn.addEventListener("blur", () => hideProof(btn));
     });
   })();
 </script>
