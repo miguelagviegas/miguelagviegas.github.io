@@ -509,12 +509,16 @@ tabs.forEach(tab => {
     const items = Array.from(grid.querySelectorAll(".skill-item"));
     let activeButton = null;
 
-    function moveProofAfterRow(itemIndex) {
-      const rowEndIndex = Math.min(Math.floor(itemIndex / 3) * 3 + 2, items.length - 1);
-      const anchor = items[rowEndIndex];
-      if (anchor) {
-        grid.insertBefore(proof, anchor.nextSibling);
+    function isMobile() {
+      return window.innerWidth < 700;
+    }
+
+    function moveProof(btn, index) {
+      if (isMobile()) {
+        // Mobile: move after the selected button
+        grid.insertBefore(proof, btn.nextSibling);
       } else {
+        // Desktop: always at the bottom
         grid.appendChild(proof);
       }
     }
@@ -525,7 +529,7 @@ tabs.forEach(tab => {
       activeButton = btn;
       proof.textContent = btn.dataset.proof || "";
       proof.style.display = "block";
-      moveProofAfterRow(index);
+      moveProof(btn, index);
     }
 
     function hideProof(btn) {
@@ -543,6 +547,14 @@ tabs.forEach(tab => {
       btn.addEventListener("mouseleave", () => hideProof(btn));
       btn.addEventListener("focus", () => showProof(btn, index));
       btn.addEventListener("blur", () => hideProof(btn));
+    });
+
+    // Handle window resize to reposition if needed
+    window.addEventListener("resize", () => {
+      if (activeButton) {
+        const index = items.indexOf(activeButton);
+        moveProof(activeButton, index);
+      }
     });
   })();
 </script>
