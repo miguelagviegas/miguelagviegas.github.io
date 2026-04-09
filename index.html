@@ -390,8 +390,15 @@
   const navMenu = document.querySelector(".nav-links");
   const navbar = document.getElementById("navbar");
 
-  function getScrollOffset() {
-    return (navbar ? navbar.offsetHeight : 0) + 12;
+  function getActivationOffset() {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const scrollPaddingTop = parseFloat(rootStyles.scrollPaddingTop) || 0;
+    const sectionMarginTop = sections.length
+      ? parseFloat(getComputedStyle(sections[0]).scrollMarginTop) || 0
+      : 0;
+    const navHeightOffset = (navbar ? navbar.offsetHeight : 0) + 12;
+
+    return Math.max(navHeightOffset, scrollPaddingTop + sectionMarginTop);
   }
 
   function setActiveLink(currentId) {
@@ -404,7 +411,7 @@
   }
 
   function updateActiveNav() {
-    const scrollPosition = window.scrollY + getScrollOffset();
+    const scrollPosition = window.scrollY + getActivationOffset();
     let current = navSectionIds[0] || "";
 
     sections.forEach((section) => {
@@ -419,6 +426,8 @@
   // Highlight active nav link based on scroll
   window.addEventListener("scroll", updateActiveNav);
   window.addEventListener("load", updateActiveNav);
+  window.addEventListener("resize", updateActiveNav);
+  window.addEventListener("hashchange", updateActiveNav);
 
   // Toggle nav menu on mobile
   toggleBtn.addEventListener("click", () => {
