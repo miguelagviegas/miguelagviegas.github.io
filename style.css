@@ -51,6 +51,7 @@ header, section {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #ffffff;
+
 }
   nav#navbar {
     width: 100%;
@@ -176,6 +177,16 @@ ul {
 .icon-button svg {
   width: 20px;
   height: 20px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: block;
+  margin: 2rem auto 1rem auto;
 }
 
 /* --- NAVIGATION --- */
