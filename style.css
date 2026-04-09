@@ -655,11 +655,11 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 .proj-acc-body details {
   margin-bottom: 12px;
   background: #ffffff;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 10px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  margin-left: 12px;
+  /* margin-left: 12px; */
 }
 
 .proj-acc-body details summary {
@@ -667,12 +667,12 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  /* justify-content: space-between; */
+  /* gap: 0.5rem; */
   padding: 0;
-  margin: -1rem -1rem 0.6rem -1rem;
+  /* margin: -1rem -1rem 0.6rem -1rem; */
   padding: 0.55rem 1rem;
-  min-height: 48px;
+  /* min-height: 48px; */
   color: #121212;
 }
 
