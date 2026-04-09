@@ -162,6 +162,22 @@ ul {
   transform: translateY(-2px);
 }
 
+.cv-bridge {
+  max-width: 800px;
+  margin: 0.25rem auto 2rem;
+  text-align: center;
+}
+
+.cv-bridge p {
+  margin: 0 0 0.35rem;
+  color: #d0d0d0;
+  font-size: 0.98rem;
+}
+
+.cv-bridge .button {
+  margin-top: 0.35rem;
+}
+
 .icon-button {
   display: inline-flex;
   align-items: center;
