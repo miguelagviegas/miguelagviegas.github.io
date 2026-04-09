@@ -46,17 +46,70 @@ header, section {
 }
 
 .nav-profile-pic {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  min-height: 32px;
-  max-width: 32px;
-  max-height: 32px;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #ffffff;
   box-sizing: border-box;
+  display: inline-block;
 }
+  nav#navbar {
+    width: 100%;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .nav-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .nav-brand {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    display: inline-block;
+  }
+  .menu-toggle {
+    margin-left: auto;
+  }
+  @media (max-width: 700px) {
+    .nav-container {
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    .nav-brand-group {
+      gap: 0.5rem;
+    }
+    .nav-profile-pic {
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      max-width: 28px !important;
+      max-height: 28px !important;
+    }
+    .nav-brand {
+      font-size: 1rem;
+    }
+    .menu-toggle {
+      margin-left: auto;
+    }
+  }
   font-weight: normal;
   color: #121212;
   .nav-container {
