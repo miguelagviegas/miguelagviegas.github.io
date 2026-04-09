@@ -46,17 +46,11 @@ header, section {
 }
 
 .nav-profile-pic {
-  width: 32px !important;
-  height: 32px !important;
-  min-width: 32px !important;
-  min-height: 32px !important;
-  max-width: 32px !important;
-  max-height: 32px !important;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  box-sizing: border-box;
-  display: inline-block;
 }
   nav#navbar {
     width: 100%;
