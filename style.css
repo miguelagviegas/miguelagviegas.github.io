@@ -491,7 +491,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   .timeline-item.left .timeline-description,
   .timeline-item.right .timeline-description {
     width: auto;
-    max-width: calc(100% - 3.25rem);
+    /* max-width: calc(100% - 3.25rem); */
     text-align: left;
     margin: 0;
     order: unset;
