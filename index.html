@@ -378,27 +378,47 @@
   <!-- ================ SCRIPTS ================ -->
 
 <script>
-  const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
+  const navSectionIds = Array.from(navLinks)
+    .map((link) => link.getAttribute("href"))
+    .filter((href) => href && href.startsWith("#"))
+    .map((href) => href.slice(1));
+  const sections = navSectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
   const toggleBtn = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-links");
+  const navbar = document.getElementById("navbar");
 
-  // Highlight active nav link based on scroll
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      if (scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
+  function getScrollOffset() {
+    return (navbar ? navbar.offsetHeight : 0) + 12;
+  }
+
+  function setActiveLink(currentId) {
     navLinks.forEach((link) => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
+      if (link.getAttribute("href") === `#${currentId}`) {
         link.classList.add("active");
       }
     });
-  });
+  }
+
+  function updateActiveNav() {
+    const scrollPosition = window.scrollY + getScrollOffset();
+    let current = navSectionIds[0] || "";
+
+    sections.forEach((section) => {
+      if (scrollPosition >= section.offsetTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    setActiveLink(current);
+  }
+
+  // Highlight active nav link based on scroll
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("load", updateActiveNav);
 
   // Toggle nav menu on mobile
   toggleBtn.addEventListener("click", () => {
@@ -408,6 +428,8 @@
   // Close mobile menu when a nav link is clicked
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      const targetId = link.getAttribute("href").slice(1);
+      setActiveLink(targetId);
       navMenu.classList.remove("show");
     });
   });
