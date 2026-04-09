@@ -686,12 +686,14 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc-body details summary {
-  margin-left: -1rem;
-  padding-left: 1rem;
+  margin-left: 0.5rem;
+  padding-left: 0rem;
 }
 
 .proj-acc-body details p {
   color: #121212;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .proj-acc-body details summary::before {
