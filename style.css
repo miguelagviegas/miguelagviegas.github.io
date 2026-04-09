@@ -1,6 +1,6 @@
 /* --- BASE STYLES --- */
 *, *::before, *::after {
-/*  box-sizing: border-box;*/
+box-sizing: border-box;
 }
 
 body {
@@ -75,7 +75,7 @@ header, section {
   .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
@@ -120,8 +120,8 @@ header, section {
     .menu-toggle {
       margin-left: auto;
       display: block;
-      width: 120px;
-      height: 120px;
+      /* width: 120px;
+      height: 120px; */
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ffffff;
@@ -220,7 +220,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.625rem
   flex-wrap: wrap;
 }
 
