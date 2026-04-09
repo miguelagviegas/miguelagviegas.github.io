@@ -606,27 +606,25 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 12px;
-  margin-bottom: 12px;
-  overflow: hidden;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .proj-acc summary {
   list-style: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 16px 0;
   color: #ffffff;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.04);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+  transition: color 180ms ease;
 }
 
 .proj-acc summary:hover {
-  background: rgba(255, 255, 255, 0.08);
+  color: #d8d8d8;
 }
 
 /* remove default marker */
@@ -635,13 +633,13 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 /* custom chevron */
 .proj-acc summary::after {
   content: "▾";
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1;
+  opacity: 0.9;
 }
 
 .proj-acc[open] summary {
-  background: #ffffff;
-  color: #121212;
+  color: #ffffff;
 }
 
 .proj-acc[open] summary::after {
@@ -649,7 +647,7 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 }
 
 .proj-acc-body {
-  padding: 12px 12px 2px;
+  padding: 0 0 4px;
   background: transparent;
 }
 
@@ -658,9 +656,10 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
   margin-bottom: 12px;
   background: #ffffff;
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 10px;
   color: #121212;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  margin-left: 12px;
 }
 
 .proj-acc-body details summary {
@@ -702,6 +701,10 @@ section:nth-of-type(4) { animation-delay: 0.3s; }
 
 .proj-acc-body details[open] summary::after {
   content: "▴";
+}
+
+.proj-acc:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* --- Switch UI on mobile --- */
