@@ -42,7 +42,7 @@ Key principles:
 
 ## Live Website
 
-www.miguelviegas.com
+https://miguelviegas.com/
 
 ## Contact
 
