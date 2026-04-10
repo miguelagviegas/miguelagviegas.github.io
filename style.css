@@ -135,8 +135,12 @@ header, section {
 }
 
 a:focus {
-  outline: 2px dashed #90caf9;
-  outline-offset: 2px;
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 ul {
@@ -160,6 +164,12 @@ ul {
   background-color: #bbbbbb;
   text-decoration: none;
   transform: translateY(-2px);
+}
+
+.button:focus-visible,
+.icon-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #121212, 0 0 0 5px #ffffff;
 }
 
 .cv-bridge {
